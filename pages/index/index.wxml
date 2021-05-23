@@ -1,2 +1,24 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class="container">
+  <view  class="weui-cells weui-cells_after-title">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="weui-cell weui-check__label" wx:for="{{checklist}}" wx:key="id">
+        <view class="weui-cell__hd">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
+        </view>
+        <view class="weui-cell__bd">{{item.name}}</view>
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" auto-focus placeholder="新项目" bindinput="bindKeyInput"/>
+      </view>
+    </view>
+  </view>
+  <view class="btn-area" id="buttonContainer">
+    <button type="primary" bindtap="createNewItem">新增</button>
+    <button type="warn" bindtap="clearItem">清除</button>
+  </view>
+</view>
